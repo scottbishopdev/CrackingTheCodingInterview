@@ -1,4 +1,4 @@
-package com.CtCI.Chapter1;
+package com.CtCI.Chapter0;
 
 public class HelloWorld {
     public static void main(String[] args) {
