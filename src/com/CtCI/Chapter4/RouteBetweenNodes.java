@@ -3,60 +3,41 @@ package com.CtCI.Chapter4;
 // Problem: Given a directed graph and two nodes (S and E), design an algorithm to find out whether there is a route
 // between from S to E.
 
+import com.CtCI.CustomLibrary.DirectedGraphNode;
+
 public class RouteBetweenNodes {
-
-    public static class Graph {
-        public Node[] nodes;
-    }
-
-    public static class Node {
-        public String value;
-        public Node[] children;
-
-        public Node(String nodeVal, Node[] nodeChildren) {
-            value = nodeVal;
-            children = nodeChildren;
-        }
-    }
 
     public static void main(String[] args) {
 
-        Node nodeA = new Node("A", new Node[0]);
-        Node nodeB = new Node("B", new Node[0]);
-        Node nodeC = new Node("C", new Node[]{nodeA, nodeB});
-        Node nodeD = new Node("D", new Node[]{nodeC});
-        Node nodeE = new Node("E", new Node[0]);
-        Node nodeF = new Node("F", new Node[]{nodeD, nodeE});
-        Node nodeG = new Node("G", new Node[]{nodeF});
+        DirectedGraphNode nodeA = new DirectedGraphNode("A");
+        DirectedGraphNode nodeB = new DirectedGraphNode("B");
+        DirectedGraphNode nodeC = new DirectedGraphNode("C", new DirectedGraphNode[]{nodeA, nodeB});
+        DirectedGraphNode nodeD = new DirectedGraphNode("D", new DirectedGraphNode[]{nodeC});
+        DirectedGraphNode nodeE = new DirectedGraphNode("E");
+        DirectedGraphNode nodeF = new DirectedGraphNode("F", new DirectedGraphNode[]{nodeD, nodeE});
+        DirectedGraphNode nodeG = new DirectedGraphNode("G", new DirectedGraphNode[]{nodeF});
 
-        Node nodeH = new Node("H", new Node[1]);
-        Node nodeI = new Node("I", new Node[]{nodeH});
-        Node nodeJ = new Node("J", new Node[]{nodeI});
-        nodeH.children[0] = nodeJ;
-        Node nodeK = new Node("K", new Node[]{nodeH});
+        DirectedGraphNode nodeH = new DirectedGraphNode("H");
+        DirectedGraphNode nodeI = new DirectedGraphNode("I", new DirectedGraphNode[]{nodeH});
+        DirectedGraphNode nodeJ = new DirectedGraphNode("J", new DirectedGraphNode[]{nodeI});
+        nodeH.children.add(nodeJ);
+        DirectedGraphNode nodeK = new DirectedGraphNode("K", new DirectedGraphNode[]{nodeH});
 
-        Node[] graph = {nodeA, nodeB, nodeC, nodeD, nodeE, nodeF, nodeG, nodeH, nodeI, nodeJ, nodeK};
-
+        DirectedGraphNode[] graph = {nodeA, nodeB, nodeC, nodeD, nodeE, nodeF, nodeG, nodeH, nodeI, nodeJ, nodeK};
 
     }
 
-    public Boolean CheckForRouteBetweenNodes(Node[] graph, Node start, Node end) {
-
-
+    public Boolean CheckForRouteBetweenNodes(DirectedGraphNode[] graph, DirectedGraphNode start, DirectedGraphNode end) {
 
         return false;
     }
 
-    public Boolean DepthFirstSearch(Node target) {
-        /*
-        for(Node node: target.children) {
-
-        }*/
+    public Boolean DepthFirstSearch(DirectedGraphNode target) {
 
         return false;
     }
 
-    public Boolean BreadthFirstSearch(Node target) {
+    public Boolean BreadthFirstSearch(DirectedGraphNode target) {
         return false;
     }
 
